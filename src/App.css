@@ -57,3 +57,10 @@ body {
   border-radius: 50%;
   background: rgb(27, 126, 27);
 }
+
+.lost {
+  height: calc(50vh - 60px);
+  padding: 30px;
+  margin-left: 50px;
+  background-color: lightgray;
+}

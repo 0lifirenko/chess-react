@@ -82,9 +82,19 @@ export class Cell {
         this.figure.cell = this;
     }
 
+    addLostFigure(figure: Figure) {
+        figure.color === Colors.BLACK
+            ? this.board.lostBlackFigures.push(figure)
+            : this.board.lostWhiteFigures.push(figure)
+    }
+
     moveFigure(targer: Cell) {
         if (this.figure && this.figure?.canMove(targer)) {
-            this.figure.canMove(targer)
+            this.figure.moveFigure(targer)
+            if (targer.figure) {
+                this.addLostFigure(targer.figure);
+
+            }
             targer.setFigure(this.figure);
             this.figure = null;
         }
